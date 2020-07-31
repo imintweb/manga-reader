@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.locale.languageDirection' expr:lang='data:blog.locale.language' prefix='og: http://ogp.me/ns#'>
+<!-- Karasu-base.xml v1.2.3 | github.com/Karasu-themes/karasu-base -->
+<head>
+
+<!-- Title -->
+<title><data:view.title.escaped/></title>
+
+<!-- All head content -->
+<b:include data='blog' name='all-head-content'/>
+
+<!-- Viewport -->
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+<!-- Sitelinks Searchbox -->
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "<data:blog.homepageUrl.canonical/>",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "<data:blog.searchUrl/>?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+    }
+}
+</script>
+
+<style>/*<![CDATA[*/
+/*!
+* manga-reader.js v1.0
+* copyright 2020 Mint Web
+* Developed by Hussein Farg (imintweb.com)
+* Licensed under MIT
+*/html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:0.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:0.35em 0.75em 0.625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}body{font-family:"Roboto",sans-serif;font-size:16px;line-height:1.5}.navbar{background:#575fcf;color:#fff;padding:24px;text-align:center}.navbar .logo .logo-text{color:#fff;text-decoration:none;display:block;font-size:24px;text-transform:uppercase}.reader-wrapper{width:100%;max-width:960px;padding:16px;margin:auto}.footer{background:#f5f5f5;color:rgba(30,39,46,0.8);text-align:center}.footer-copyrights{padding:24px;margin-top:48px;font-size:14px}.footer-copyrights a{color:#575fcf;font-weight:500;text-decoration:none}.reader-control{display:flex;align-items:center;justify-content:space-between;font-size:14px;color:rgba(30,39,46,0.8);font-weight:500;padding:8px 0}.reader-control button,.reader-nav a{background:#f5f5f5;color:#1e272e;outline:0;border:0;padding:12px 16px;font-size:14px;border-radius:4px;cursor:pointer;text-decoration:none;transition:all 0.2s}.reader-control button svg,.reader-nav a svg{width:24px;height:24px}.reader-control button:hover,.reader-nav a:hover{background:#575fcf;color:#fff}.reader-control button{margin-left:8px}.reader-state{padding:8px 16px}.reader-pages{padding:8px 16px}.reader-pages img{width:100%;max-width:100%;border-radius:4px}.reader-nav{padding:8px 16px;display:flex;align-items:center;justify-content:space-between}.reader-nav a{font-weight:500}
+/*]]>*/</style>
+
+<b:skin><![CDATA[
+/*=> Reset */
+widget-item-control,
+span.item-control.blog-admin,
+.item-control.blog-admin {
+	display: none;
+}
+
+/*=> Comment editor */
+#comment-editor {
+border: 0;
+outline: 0;
+width: 100%;
+min-height: 200px;}
+
+]]></b:skin>
+
+</head>
+<body>
+
+<b:section id="blog">
+
+	<b:widget id="Blog1" type="Blog">
+
+		<b:includable id='main' var='top'>
+
+			<!-- Loop -->
+
+			<b:if cond='data:view.isMultipleItems'>
+					<b:loop values='data:posts' var='post'>
+						<b:include name='post' data='post'/>
+					</b:loop>
+				<b:else/>
+
+				<header class='navbar'>
+					<div class='logo'>
+						<b:if cond='data:view.isHomepage'>
+							<span class='logo-text'><data:blog.title/></span>
+							<b:else/>
+							<a epxr:href='data:blog.homepageUrl' class='logo-text'><data:blog.title/></a>
+						</b:if>
+					</div>
+				</header>
+
+				<div class='reader-wrapper'>
+
+					<b:loop values='data:posts' var='post'>
+						<b:include name='post' data='post'/>
+					</b:loop>
+
+				</div>
+
+					<!-- الحقوق (؟ لا تقم بإزالة الرجاء!) -->
+					<div class="footer">
+						<div class="footer-copyrights">
+							تطوير <a href="#">مينت ويب</a> © 2020 - بواسطة <a href='https://www.blogger.com/' target='_blank'>بلوجر</a> | <data:blog.title/>
+						</div>
+					</div>
+			</b:if>
+			<!-- ./loop -->
+
+		</b:includable>
+
+		<b:includable id='post' var='post'>
+
+			<b:if cond='data:view.isPost'>
+				<div class='reader'>
+					<!-- Control -->
+					<div class='reader-control'>
+						<!-- أزرار للتبديل بين الصفحات -->
+						<div class='reader-nav'>
+							<button id='prev'>
+								<svg viewBox="0 0 24 24">
+								    <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+								</svg>
+							</button>
+							<button id='next'>
+								<svg viewBox="0 0 24 24">
+								    <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+								</svg>
+							</button>
+						</div>
+						<!-- الصفحة الحالية / إجمالي الصفحات -->
+						<div class='reader-state'>
+							الصفحة <span id='current-page'>1</span>/<span id='total-page'>54</span>
+						</div>
+					</div>
+
+					<!-- الحاوية حيث سيتم عرض الصور -->
+					<div class="reader-pages"></div>
+
+					<data:post.body/>
+				</div>
+			</b:if>
+
+		</b:includable>
+
+		<b:includable id="comment-blogger">
+			<b:include name='commentPicker' data='post'/>
+		</b:includable>
+
+		<b:includable id="comment-disqus">
+            <div id="disqus_thread"></div>
+            <script>
+				var disqus_config = function(){
+					this.page.url = "<data:view.url.canonical/>";
+					this.page.title = "<data:view.title.escaped/>";};
+				(function() {
+					var d = document, s = d.createElement('script');
+					s.src = 'https://<data:skin.vars.config_shortname/>.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+				})();
+            </script>
+		</b:includable>
+
+		<b:includable id='postPagination'>
+		  <div class='blog-pager container' id='blog-pager'>
+		    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+		    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+		  </div>
+		</b:includable>
+
+		<b:includable id='previousPageLink'>
+        	<b:tag name='tag' expr:href='data:olderPageUrl'><data:newerPageUrl/><data:newerPageTitle/></b:tag>
+		</b:includable>
+
+        <b:includable id='nextPageLink'>
+        	<b:tag name='tag' expr:href='data:olderPageUrl'><data:olderPageTitle/></b:tag>
+        </b:includable>
+
+        <b:includable id='status-message'>
+        	<b:tag name='div' class='query-box'><data:navMessage/></b:tag>
+        </b:includable>
+
+		<b:includable id="comment-facebook">
+			<div id="fb-root"></div>
+			<b:if cond='data:skin.vars.config_comment == "facebook'>
+				<script async='async' defer='defer' crossorigin='anonymous' src='https://connect.facebook.net/es_LA/all.js#xfbml=1'></script>
+			</b:if>
+			<div class='fb-comments' expr:data-href='data:view.url.canonical' data-width='100%' data-numposts='5'></div>
+		</b:includable>
+
+		<b:includable id="commentPicker" var='post'>
+			<div class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+				<a name='comments'/>
+
+				<div class='comments-content'>
+					<div id='comment-holder'><data:post.commentHtml/></div>
+				</div>
+
+				<p class='comment-footer'>
+					<b:if cond='data:post.allowNewComments'>
+						<b:include data='post' name='threadedCommentForm'/>
+					<b:else/>
+						<data:post.noNewCommentsText/>
+					</b:if>
+				</p>
+			</div>
+		</b:includable>
+
+		<b:includable id='comments'>
+			<b:include expr:name='"comment-" + data:skin.vars.config_comment'/>
+		</b:includable>
+
+		<b:includable id='threadedCommentForm' var='post'>
+		  <div class='comment-form'>
+		    <a name='comment-form'/>
+		    <b:include data='post' name='commentFormIframeSrc'/>
+		    <iframe class='blogger-iframe-colorize blogger-comment-from-post' id='comment-editor' name='comment-editor' src=''/>
+		    <data:post.cmtfpIframe/>
+		    <script type='text/javascript'>BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>');</script>
+		  </div>
+		</b:includable>
+
+		<b:includable id='threadedCommentJs' var='post'>
+		  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+		    <b:template-script inline='true' name='threaded_comments'/>
+		    <script type='text/javascript'>
+		      blogger.widgets.blog.initThreadedComments(<data:post.commentJso/>, <data:post.commentMsgs/>, <data:post.commentConfig/>);
+		    </script>
+		</b:includable>
+
+		<b:includable id='paginationLink'><!--empty--></b:includable>
+
+	</b:widget>
+
+</b:section>
+
+<!-- Google Analytics -->
+<b:include data='blog' name='google-analytics'/>
+
+<script>//<![CDATA[
+"use strict";
+/*!
+* manga-reader.js v1.0
+* copyright 2020 Mint Web
+* Developed by Hussein Farg (imintweb.com)
+* Licensed under MIT
+*/!function(){const e=pages,r=document.querySelector(".reader-pages"),n=document.querySelector(".reader-nav #prev"),t=document.querySelector(".reader-nav #next"),c=document.querySelector(".reader-state #current-page"),d=document.querySelector(".reader-state #total-page"),a=e=>{let r=document.createElement("img");return r.src=e,r};r.appendChild(a(e[0])),d.innerHTML=e.length,(()=>{let d=0;n.addEventListener("click",()=>{d>0&&(d--,r.innerHTML="",r.appendChild(a(e[d])),c.innerHTML=d+1)}),t.addEventListener("click",()=>{d<e.length-1&&(d++,r.innerHTML="",r.appendChild(a(e[d])),c.innerHTML=d+1)})})()}();
+//]]></script>
+</body>
+</html>
